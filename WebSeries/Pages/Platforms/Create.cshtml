@@ -1,0 +1,33 @@
+﻿@page
+@model WebSeries.Pages.Platforms.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="text-center">
+    <h1 class="display-4 heading">Add New Platform</h1>
+    <a asp-page="Index" class="btn btn-primary">View All Platforms</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Platform.PlatformName" class="control-label"></label>
+                <input asp-for="Platform.PlatformName" class="form-control" />
+                <span asp-validation-for="Platform.PlatformName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

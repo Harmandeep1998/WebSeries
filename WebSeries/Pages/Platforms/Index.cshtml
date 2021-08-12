@@ -1,0 +1,33 @@
+﻿@page
+@model WebSeries.Pages.Platforms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+    <h1 class="display-4 heading">View All Platforms</h1>
+    <a asp-page="Create" class="btn btn-primary">Add New Platform</a>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model.Platform)
+    {
+        <div class="col-4">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.PlatformName)</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a asp-page="./Edit" class="btn btn-secondary" asp-route-id="@item.Id">Edit</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a asp-page="./Delete" class="btn btn-warning" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

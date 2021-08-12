@@ -1,0 +1,27 @@
+﻿@page
+@model WebSeries.Pages.Platforms.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="text-center">
+    <h1 class="display-4 heading">Delete Platform Details</h1>
+    <a asp-page="Index" class="btn btn-primary">View All Platforms</a>
+</div>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Platform.PlatformName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Platform.PlatformName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Platform.Id" />
+        <input type="submit" value="Delete Platform Details" class="btn btn-danger" /> 
+    </form>
+</div>

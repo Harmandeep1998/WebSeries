@@ -1,0 +1,39 @@
+﻿@page
+@model WebSeries.Pages.Binges.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="text-center">
+    <h1 class="display-4 heading">Edit Binge Watch</h1>
+    <a asp-page="Index" class="btn btn-primary">View All Binge Watch</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Binge.Id" />
+            <div class="form-group">
+                <label asp-for="Binge.SeriesId" class="control-label"></label>
+                <select asp-for="Binge.SeriesId" class="form-control" asp-items="ViewBag.SeriesId"></select>
+                <span asp-validation-for="Binge.SeriesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Binge.Comment" class="control-label"></label>
+                <textarea asp-for="Binge.Comment" class="form-control"></textarea>
+                <span asp-validation-for="Binge.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model WebSeries.Pages.Binges.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+    <h1 class="display-4 heading">All Binge Watch</h1>
+    <a asp-page="Create" class="btn btn-primary">Add New Binge Watch</a>
+</div>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Binge[0].Series)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Binge[0].Comment)
+            </th>
+            <th colspan="2">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Binge)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series.SeriesName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-secondary" asp-route-id="@item.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-page="./Delete" class="btn btn-warning" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

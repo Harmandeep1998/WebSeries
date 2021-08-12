@@ -1,0 +1,44 @@
+﻿@page
+@model WebSeries.Pages.SeriesRatings.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h1 class="display-4 heading">Edit Rating</h1>
+    <a asp-page="Index" class="btn btn-primary">View All Web Series Rating</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SeriesRating.Id" />
+            <div class="form-group">
+                <label asp-for="SeriesRating.SeriesId" class="control-label"></label>
+                <select asp-for="SeriesRating.SeriesId" class="form-control" asp-items="ViewBag.SeriesId"></select>
+                <span asp-validation-for="SeriesRating.SeriesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeriesRating.Review" class="control-label"></label>
+                <textarea asp-for="SeriesRating.Review" class="form-control" ></textarea>
+                <span asp-validation-for="SeriesRating.Review" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeriesRating.Rating" class="control-label"></label>
+                <input asp-for="SeriesRating.Rating" class="form-control" />
+                <span asp-validation-for="SeriesRating.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

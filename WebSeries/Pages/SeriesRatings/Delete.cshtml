@@ -1,0 +1,39 @@
+﻿@page
+@model WebSeries.Pages.SeriesRatings.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="text-center">
+    <h1 class="display-4 heading">Delete Rating</h1>
+    <a asp-page="Index" class="btn btn-primary">View All Web Series Rating</a>
+</div>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeriesRating.Series)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeriesRating.Series.SeriesName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeriesRating.Review)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeriesRating.Review)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeriesRating.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeriesRating.Rating)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="SeriesRating.Id" />
+        <input type="submit" value="Delete Web Series Rating" class="btn btn-danger" /> 
+    </form>
+</div>

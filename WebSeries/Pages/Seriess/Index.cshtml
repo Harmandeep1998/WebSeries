@@ -1,0 +1,56 @@
+﻿@page
+@model WebSeries.Pages.Seriess.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 heading">All Web Series</h1>
+    <a asp-page="Create" class="btn btn-primary">Add New Web Series</a>
+</div>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].SeriesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].Language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].Season)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].Platform)
+            </th>
+            <th colspan="2">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Series)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeriesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Season)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Platform.PlatformName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" class="btn btn-secondary"  asp-route-id="@item.Id">Edit</a>
+                    </td>
+                <td>
+                    <a asp-page="./Delete" class="btn btn-warning"  asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
